@@ -1,16 +1,16 @@
-{
-  "schema": 1,
-  "product": "racksound-host",
-  "version": "0.1.0",
-  "released": "2026-08-14",
-  "channel": "stable",
-  "notes": "Initial public release of Racksound Host.",
-  "installer": {
-    "filename": "RacksoundHost-Setup-0.1.0.exe",
-    "url": "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.1.0.exe",
-    "size": 3511969,
-    "sha256": "9f8d938ee71fd2ed400369f9b3e56867fd100937174144eda8c36cc2b1a81c41"
-  },
-  "silentArgs": "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
-  "minSupportedPrevious": null
+﻿{
+    "schema":  1,
+    "product":  "racksound-host",
+    "version":  "0.2.0",
+    "released":  "2026-08-28",
+    "channel":  "stable",
+    "notes":  "Adds the built-in System Optimiser (detect + one-click Optimise/Restore).",
+    "installer":  {
+                      "filename":  "RacksoundHost-Setup-0.2.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.2.0.exe",
+                      "size":  4994743,
+                      "sha256":  "44041706d82ea31ee072a9acefed6993a837bb967c22d61a54ecb1a2f321a293"
+                  },
+    "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
+    "minSupportedPrevious":  null
 }

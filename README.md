@@ -14,18 +14,18 @@ control panel to any phone/tablet on the same network.
 ## Download & install
 
 1. Download the installer from
-   **[`bin/RacksoundHost-Setup-0.1.0.exe`](bin/RacksoundHost-Setup-0.1.0.exe)**
+   **[`bin/RacksoundHost-Setup-0.2.0.exe`](bin/RacksoundHost-Setup-0.2.0.exe)**
    (or grab it from **[Releases](../../releases/latest)** if published there).
 2. Run it. Default install path is `C:\Program Files\Racksound Host`.
-   Silent install: `RacksoundHost-Setup-0.1.0.exe /VERYSILENT /NORESTART`.
+   Silent install: `RacksoundHost-Setup-0.2.0.exe /VERYSILENT /NORESTART`.
 3. Launch **Racksound Host**. It lives in the system tray; the control app opens
    from the tray icon.
 
 Verify the download (optional):
 
 ```
-CertUtil -hashfile RacksoundHost-Setup-0.1.0.exe SHA256
-# expect: 9f8d938ee71fd2ed400369f9b3e56867fd100937174144eda8c36cc2b1a81c41
+CertUtil -hashfile RacksoundHost-Setup-0.2.0.exe SHA256
+# expect: 44041706d82ea31ee072a9acefed6993a837bb967c22d61a54ecb1a2f321a293
 ```
 
 ### Add your feedback-suppression VST3 (done once, on the box)
@@ -35,6 +35,15 @@ Plugins → Add VST3**, point it at your `.vst3`, then pick it per channel. Any
 VST3 works; typical choices are AlphaLabs **Defeedback** or **Racksound
 Restore**. You are responsible for holding a valid licence for whatever plugin
 you load.
+
+### Tune the rack (System Optimiser)
+
+Settings → **System Optimisation** shows whether Windows is tuned for real-time
+audio (power plan, background services, multimedia scheduling, etc.). On a
+**dedicated rack**, click **Optimise this PC** to apply the tuning (a Windows
+elevation prompt may appear; on a locked-down rack image there's no prompt).
+Every change is backed up, so **Restore defaults** reverts it cleanly. Don't run
+this on a general-purpose computer — it's meant for an appliance.
 
 ---
 
