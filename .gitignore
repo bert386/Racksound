@@ -1,0 +1,4 @@
+# The host installer is committed under /bin as the download + update source.
+# Never publish any VST3 (plugins are added on the box, manually).
+*.vst3
+staging/
