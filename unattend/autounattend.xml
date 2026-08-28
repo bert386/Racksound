@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Racksound / Defeed-Rack unattended Windows 11 Pro install
+  ==========================================================
+  Profile : "Appliance-open" for an ISOLATED / air-gapped live-sound rack.
+  Region  : Australia (en-AU, GeoID 12, AEST).
+  Scope   : Provisioning only. It installs + debloats + coarse-tunes Windows.
+            It does NOT install or launch the Racksound host, and it does NOT
+            apply the real-time audio tuning (MMCSS / IRQ / DPC / timer-res) =
+            that is the separate System Optimiser, run AFTER first boot.
+
+  Clean-room: authored from the standard Microsoft unattend schema. Contains
+  no proprietary code from any third party. Product key below is Microsoft's
+  public generic Win 11 Pro *edition-selection* key (NOT activation).
+
+  !!! SECURITY POSTURE = READ BEFORE DEPLOYING !!!
+  This image is deliberately WIDE OPEN: blank-password auto-logon admin,
+  Remote Desktop ON, Windows Defender / UAC / SmartScreen OFF, Windows Update
+  disabled. That is ONLY defensible on a physically isolated / air-gapped LAN.
+  Do NOT put a box built from this file on the open internet. For a networked
+  rack, use the "Hardened" variant instead (see README.md).
+
+  USAGE: drop this file (named exactly autounattend.xml) at the ROOT of a
+  bootable Windows 11 install USB. See deploy/unattend/README.md.
+-->
+<unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+
+  <!-- ============================================================ -->
+  <!-- windowsPE : bypass HW checks, partition, apply image          -->
+  <!-- ============================================================ -->
+  <settings pass="windowsPE">
+    <component name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <SetupUILanguage>
+        <UILanguage>en-US</UILanguage>
+      </SetupUILanguage>
+      <InputLocale>0c09:00000409</InputLocale>
+      <SystemLocale>en-AU</SystemLocale>
+      <UILanguage>en-US</UILanguage>
+      <UILanguageFallback>en-US</UILanguageFallback>
+      <UserLocale>en-AU</UserLocale>
+    </component>
+
+    <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+
+      <!-- Win 11 requirement bypasses (TPM / SecureBoot / RAM / CPU / storage).
+           Written into the WinPE LabConfig hive; read by setup at image apply. -->
+      <RunSynchronous>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassTPMCheck /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>2</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassSecureBootCheck /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>3</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassRAMCheck /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>4</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassCPUCheck /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>5</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassStorageCheck /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+      </RunSynchronous>
+
+      <!-- Wipe disk 0, GPT: 300MB ESP + 16MB MSR + Windows (fills rest).
+           WinRE lives inside the Windows partition (fine for an appliance). -->
+      <DiskConfiguration>
+        <WillShowUI>OnError</WillShowUI>
+        <Disk wcm:action="add">
+          <DiskID>0</DiskID>
+          <WillWipeDisk>true</WillWipeDisk>
+          <CreatePartitions>
+            <CreatePartition wcm:action="add">
+              <Order>1</Order>
+              <Type>EFI</Type>
+              <Size>300</Size>
+            </CreatePartition>
+            <CreatePartition wcm:action="add">
+              <Order>2</Order>
+              <Type>MSR</Type>
+              <Size>16</Size>
+            </CreatePartition>
+            <CreatePartition wcm:action="add">
+              <Order>3</Order>
+              <Type>Primary</Type>
+              <Extend>true</Extend>
+            </CreatePartition>
+          </CreatePartitions>
+          <ModifyPartitions>
+            <ModifyPartition wcm:action="add">
+              <Order>1</Order>
+              <PartitionID>1</PartitionID>
+              <Format>FAT32</Format>
+              <Label>System</Label>
+            </ModifyPartition>
+            <ModifyPartition wcm:action="add">
+              <Order>2</Order>
+              <PartitionID>2</PartitionID>
+            </ModifyPartition>
+            <ModifyPartition wcm:action="add">
+              <Order>3</Order>
+              <PartitionID>3</PartitionID>
+              <Format>NTFS</Format>
+              <Label>Windows</Label>
+              <Letter>C</Letter>
+            </ModifyPartition>
+          </ModifyPartitions>
+        </Disk>
+      </DiskConfiguration>
+
+      <ImageInstall>
+        <OSImage>
+          <InstallTo>
+            <DiskID>0</DiskID>
+            <PartitionID>3</PartitionID>
+          </InstallTo>
+          <InstallFrom>
+            <MetaData wcm:action="add">
+              <Key>/IMAGE/NAME</Key>
+              <Value>Windows 11 Pro</Value>
+            </MetaData>
+          </InstallFrom>
+          <WillShowUI>OnError</WillShowUI>
+        </OSImage>
+      </ImageInstall>
+
+      <UserData>
+        <ProductKey>
+          <!-- Public generic Win 11 Pro edition-selection key (NOT activation) -->
+          <Key>VK7JG-NPHTM-C97JM-9MPGT-3V66T</Key>
+          <WillShowUI>OnError</WillShowUI>
+        </ProductKey>
+        <AcceptEula>true</AcceptEula>
+      </UserData>
+    </component>
+  </settings>
+
+  <!-- ============================================================ -->
+  <!-- specialize : name, timezone, security posture, Win Update off -->
+  <!-- ============================================================ -->
+  <settings pass="specialize">
+    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <ComputerName>RACKSOUND</ComputerName>
+      <TimeZone>AUS Eastern Standard Time</TimeZone>
+    </component>
+
+    <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <RunSynchronous>
+
+        <!-- Skip the "connect to network" OOBE gate -->
+        <RunSynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <Path>reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE" /v BypassNRO /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- UAC off -->
+        <RunSynchronousCommand wcm:action="add">
+          <Order>2</Order>
+          <Path>reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableLUA /t REG_DWORD /d 0 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- SmartScreen off (shell + Edge) -->
+        <RunSynchronousCommand wcm:action="add">
+          <Order>3</Order>
+          <Path>reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SmartScreenEnabled /t REG_SZ /d Off /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>4</Order>
+          <Path>reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v EnableSmartScreen /t REG_DWORD /d 0 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- Remote Desktop ON -->
+        <RunSynchronousCommand wcm:action="add">
+          <Order>5</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- Windows Defender OFF (policy + services). NOTE: on the very latest
+             Win 11 builds Tamper Protection can partially re-enable Defender at
+             runtime; for a guaranteed-off image use the offline-hive method
+             documented in README.md. -->
+        <RunSynchronousCommand wcm:action="add">
+          <Order>6</Order>
+          <Path>reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>7</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\WinDefend" /v Start /t REG_DWORD /d 4 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>8</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Sense" /v Start /t REG_DWORD /d 4 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>9</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\WdNisSvc" /v Start /t REG_DWORD /d 4 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- Windows Update OFF (services + policy) -->
+        <RunSynchronousCommand wcm:action="add">
+          <Order>10</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /v Start /t REG_DWORD /d 4 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>11</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\UsoSvc" /v Start /t REG_DWORD /d 4 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>12</Order>
+          <Path>reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- Telemetry minimised -->
+        <RunSynchronousCommand wcm:action="add">
+          <Order>13</Order>
+          <Path>reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- Fast Startup off (clean, deterministic boots) -->
+        <RunSynchronousCommand wcm:action="add">
+          <Order>14</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d 0 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- Long path support + show file extensions groundwork -->
+        <RunSynchronousCommand wcm:action="add">
+          <Order>15</Order>
+          <Path>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+
+        <!-- Disable consumer content / suggestions -->
+        <RunSynchronousCommand wcm:action="add">
+          <Order>16</Order>
+          <Path>reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v DisableWindowsConsumerFeatures /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+
+      </RunSynchronous>
+    </component>
+  </settings>
+
+  <!-- ============================================================ -->
+  <!-- oobeSystem : locale, auto-logon admin, first-logon tuning     -->
+  <!-- ============================================================ -->
+  <settings pass="oobeSystem">
+    <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <InputLocale>0c09:00000409</InputLocale>
+      <SystemLocale>en-AU</SystemLocale>
+      <UILanguage>en-US</UILanguage>
+      <UILanguageFallback>en-US</UILanguageFallback>
+      <UserLocale>en-AU</UserLocale>
+    </component>
+
+    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+
+      <OOBE>
+        <HideEULAPage>true</HideEULAPage>
+        <HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+        <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
+        <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+        <ProtectYourPC>3</ProtectYourPC>
+      </OOBE>
+
+      <!-- Single local admin, BLANK password (appliance-open profile) -->
+      <UserAccounts>
+        <LocalAccounts>
+          <LocalAccount wcm:action="add">
+            <Name>Racksound</Name>
+            <DisplayName>Racksound</DisplayName>
+            <Description>Racksound appliance operator</Description>
+            <Group>Administrators</Group>
+            <Password>
+              <Value></Value>
+              <PlainText>true</PlainText>
+            </Password>
+          </LocalAccount>
+        </LocalAccounts>
+      </UserAccounts>
+
+      <!-- Auto-logon for the first boot; FirstLogon makes it persistent -->
+      <AutoLogon>
+        <Username>Racksound</Username>
+        <Enabled>true</Enabled>
+        <LogonCount>1</LogonCount>
+        <Password>
+          <Value></Value>
+          <PlainText>true</PlainText>
+        </Password>
+      </AutoLogon>
+
+      <FirstLogonCommands>
+        <!-- Make auto-logon permanent (survives past LogonCount) -->
+        <SynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <CommandLine>reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AutoAdminLogon /t REG_SZ /d 1 /f</CommandLine>
+          <Description>Persistent auto-logon</Description>
+        </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>2</Order>
+          <CommandLine>reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultUserName /t REG_SZ /d Racksound /f</CommandLine>
+          <Description>Auto-logon user</Description>
+        </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>3</Order>
+          <CommandLine>reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultPassword /t REG_SZ /d "" /f</CommandLine>
+          <Description>Auto-logon blank password</Description>
+        </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>4</Order>
+          <CommandLine>reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultDomainName /t REG_SZ /d RACKSOUND /f</CommandLine>
+          <Description>Auto-logon domain</Description>
+        </SynchronousCommand>
+
+        <!-- Set AU home location -->
+        <SynchronousCommand wcm:action="add">
+          <Order>5</Order>
+          <CommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Set-WinHomeLocation -GeoId 12"</CommandLine>
+          <Description>Set region to Australia</Description>
+        </SynchronousCommand>
+
+        <!-- Power: high performance, no sleep/standby/hibernate, USB suspend off -->
+        <SynchronousCommand wcm:action="add">
+          <Order>6</Order>
+          <CommandLine>cmd.exe /c powercfg.exe /hibernate off</CommandLine>
+          <Description>Disable hibernate</Description>
+        </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>7</Order>
+          <CommandLine>cmd.exe /c powercfg.exe -setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c</CommandLine>
+          <Description>High Performance power plan</Description>
+        </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>8</Order>
+          <CommandLine>cmd.exe /c powercfg.exe /change standby-timeout-ac 0 &amp; powercfg.exe /change monitor-timeout-ac 0 &amp; powercfg.exe /change disk-timeout-ac 0 &amp; powercfg.exe /change hibernate-timeout-ac 0</CommandLine>
+          <Description>Never sleep</Description>
+        </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>9</Order>
+          <CommandLine>cmd.exe /c powercfg.exe -setacvalueindex SCHEME_CURRENT 2a737441-1930-4402-8d77-b2bebba308a3 48e6b7a6-50f5-4782-a5d4-53bb8f07e226 0 &amp; powercfg.exe -setactive SCHEME_CURRENT</CommandLine>
+          <Description>USB selective suspend off</Description>
+        </SynchronousCommand>
+
+        <!-- Remote Desktop firewall group on -->
+        <SynchronousCommand wcm:action="add">
+          <Order>10</Order>
+          <CommandLine>cmd.exe /c netsh advfirewall firewall set rule group="remote desktop" new enable=Yes</CommandLine>
+          <Description>Allow RDP through firewall</Description>
+        </SynchronousCommand>
+
+        <!-- Debloat: remove provisioned + installed appx bloat -->
+        <SynchronousCommand wcm:action="add">
+          <Order>11</Order>
+          <CommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "$a=@('Microsoft.3DBuilder','Microsoft.549981C3F5F10','Microsoft.BingNews','Microsoft.BingWeather','Microsoft.GamingApp','Microsoft.GetHelp','Microsoft.Getstarted','Microsoft.MicrosoftOfficeHub','Microsoft.MicrosoftSolitaireCollection','Microsoft.MicrosoftStickyNotes','Microsoft.MixedReality.Portal','Microsoft.Office.OneNote','Microsoft.OutlookForWindows','Microsoft.People','Microsoft.PowerAutomateDesktop','Microsoft.SkypeApp','Microsoft.Todos','Microsoft.Wallet','Microsoft.WindowsAlarms','Microsoft.WindowsCamera','microsoft.windowscommunicationsapps','Microsoft.WindowsFeedbackHub','Microsoft.WindowsMaps','Microsoft.WindowsSoundRecorder','Microsoft.Xbox.TCUI','Microsoft.XboxGameOverlay','Microsoft.XboxGamingOverlay','Microsoft.XboxIdentityProvider','Microsoft.XboxSpeechToTextOverlay','Microsoft.YourPhone','Microsoft.ZuneMusic','Microsoft.ZuneVideo','MicrosoftTeams','MSTeams','Microsoft.Copilot','Clipchamp.Clipchamp'); foreach($n in $a){ Get-AppxProvisionedPackage -Online | Where-Object DisplayName -eq $n | Remove-AppxProvisionedPackage -Online -AllUsers -ErrorAction SilentlyContinue | Out-Null; Get-AppxPackage -AllUsers -Name $n | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue }"</CommandLine>
+          <Description>Remove bundled Microsoft apps</Description>
+        </SynchronousCommand>
+
+        <!-- Explorer: show extensions, launch to This PC, hide search box -->
+        <SynchronousCommand wcm:action="add">
+          <Order>12</Order>
+          <CommandLine>reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v HideFileExt /t REG_DWORD /d 0 /f</CommandLine>
+          <Description>Show file extensions</Description>
+        </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>13</Order>
+          <CommandLine>reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v LaunchTo /t REG_DWORD /d 1 /f</CommandLine>
+          <Description>Explorer opens This PC</Description>
+        </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>14</Order>
+          <CommandLine>reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v SearchboxTaskbarMode /t REG_DWORD /d 0 /f</CommandLine>
+          <Description>Hide taskbar search box</Description>
+        </SynchronousCommand>
+      </FirstLogonCommands>
+
+    </component>
+  </settings>
+</unattend>

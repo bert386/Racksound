@@ -62,9 +62,32 @@ installer from Releases — it upgrades in place.
 
 ---
 
+---
+
+## Rack imaging (unattended Windows install)
+
+[`unattend/autounattend.xml`](unattend/autounattend.xml) provisions a Windows 11
+Pro rack image with zero prompts: wipe + install + debloat + coarse power/USB
+tuning, one auto-logon operator account. Drop it at the root of a bootable
+Windows 11 USB. See [`unattend/README.md`](unattend/README.md) for the full
+walkthrough and the security-posture warnings.
+
+> ⚠️ The bundled profile is deliberately **wide open** (blank-password
+> auto-logon, RDP on, Defender/UAC off) and is for a **physically isolated /
+> air-gapped rack only**. The README documents how to switch to a hardened,
+> networked profile. It also **wipes Disk 0** — read before booting.
+
+The image is provisioning only; the real-time audio tuning is applied by the
+separate System Optimiser after first boot.
+
+---
+
+## License
+
+Racksound Host is proprietary software. See [`LICENSE`](LICENSE). It is
+distributed as a binary; VST3 plugins are not included and remain the property
+of their respective vendors.
+
 ## Support
 
 Eastec Audio. Issues and requests: use this repo's **Issues** tab.
-
-Racksound Host is © Eastec Audio and distributed as a binary. VST3 plugins are
-not included and remain the property of their respective vendors.
