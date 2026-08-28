@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.2.0",
+    "version":  "0.3.0",
     "released":  "2026-08-28",
     "channel":  "stable",
-    "notes":  "Adds the built-in System Optimiser (detect + one-click Optimise/Restore).",
+    "notes":  "Adds host-driven flashing of a blank RP2040 display board, plus firmware I2C auto-detect (0x3C/0x3D).",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.2.0.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.2.0.exe",
-                      "size":  4994743,
-                      "sha256":  "44041706d82ea31ee072a9acefed6993a837bb967c22d61a54ecb1a2f321a293"
+                      "filename":  "RacksoundHost-Setup-0.3.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.3.0.exe",
+                      "size":  5075414,
+                      "sha256":  "d222300dd0983f8bf6f5d5079ba93cefeba192ee5a4605f64f0216ed8add2dfe"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null

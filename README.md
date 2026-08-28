@@ -14,18 +14,18 @@ control panel to any phone/tablet on the same network.
 ## Download & install
 
 1. Download the installer from
-   **[`bin/RacksoundHost-Setup-0.2.0.exe`](bin/RacksoundHost-Setup-0.2.0.exe)**
+   **[`bin/RacksoundHost-Setup-0.3.0.exe`](bin/RacksoundHost-Setup-0.3.0.exe)**
    (or grab it from **[Releases](../../releases/latest)** if published there).
 2. Run it. Default install path is `C:\Program Files\Racksound Host`.
-   Silent install: `RacksoundHost-Setup-0.2.0.exe /VERYSILENT /NORESTART`.
+   Silent install: `RacksoundHost-Setup-0.3.0.exe /VERYSILENT /NORESTART`.
 3. Launch **Racksound Host**. It lives in the system tray; the control app opens
    from the tray icon.
 
 Verify the download (optional):
 
 ```
-CertUtil -hashfile RacksoundHost-Setup-0.2.0.exe SHA256
-# expect: 44041706d82ea31ee072a9acefed6993a837bb967c22d61a54ecb1a2f321a293
+CertUtil -hashfile RacksoundHost-Setup-0.3.0.exe SHA256
+# expect: d222300dd0983f8bf6f5d5079ba93cefeba192ee5a4605f64f0216ed8add2dfe
 ```
 
 ### Add your feedback-suppression VST3 (done once, on the box)
@@ -44,6 +44,14 @@ audio (power plan, background services, multimedia scheduling, etc.). On a
 elevation prompt may appear; on a locked-down rack image there's no prompt).
 Every change is backed up, so **Restore defaults** reverts it cleanly. Don't run
 this on a general-purpose computer — it's meant for an appliance.
+
+### Front-panel display (optional)
+
+If you have the front-panel OLED (Waveshare RP2040-Zero + 0.91″ SSD1306), plug a
+**blank board** into the rack via USB — the host detects it and offers to **flash
+the display firmware** automatically (no Arduino tools or BOOTSEL button). Once
+flashed it shows live status; the host renders the screen, so future layout
+changes ship in host updates, not firmware re-flashes.
 
 ---
 
