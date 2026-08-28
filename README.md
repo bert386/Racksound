@@ -14,18 +14,18 @@ control panel to any phone/tablet on the same network.
 ## Download & install
 
 1. Download the installer from
-   **[`bin/RacksoundHost-Setup-0.3.0.exe`](bin/RacksoundHost-Setup-0.3.0.exe)**
+   **[`bin/RacksoundHost-Setup-0.4.0.exe`](bin/RacksoundHost-Setup-0.4.0.exe)**
    (or grab it from **[Releases](../../releases/latest)** if published there).
 2. Run it. Default install path is `C:\Program Files\Racksound Host`.
-   Silent install: `RacksoundHost-Setup-0.3.0.exe /VERYSILENT /NORESTART`.
+   Silent install: `RacksoundHost-Setup-0.4.0.exe /VERYSILENT /NORESTART`.
 3. Launch **Racksound Host**. It lives in the system tray; the control app opens
    from the tray icon.
 
 Verify the download (optional):
 
 ```
-CertUtil -hashfile RacksoundHost-Setup-0.3.0.exe SHA256
-# expect: d222300dd0983f8bf6f5d5079ba93cefeba192ee5a4605f64f0216ed8add2dfe
+CertUtil -hashfile RacksoundHost-Setup-0.4.0.exe SHA256
+# expect: 704e395bf8eb127ab97afd5ed405d4b33e67f51426ed0c93c518f3ccc6375ce4
 ```
 
 ### Add your feedback-suppression VST3 (done once, on the box)
@@ -72,10 +72,11 @@ changes ship in host updates, not firmware re-flashes.
 https://raw.githubusercontent.com/bert386/Racksound/main/latest.json
 ```
 
-It carries the current version, the release-asset download URL, file size and
-SHA-256. A future Racksound Host build can poll this, compare versions, and
-offer a one-click update. To update manually, just download and run the newest
-installer from Releases — it upgrades in place.
+It carries the current version, the download URL, file size and SHA-256. From
+**0.4.0** the host has a **Check for Updates** button (Overview page) that reads
+this feed, and — if a newer version exists — downloads the installer, verifies
+its checksum, and runs it. To update manually, just download and run the newest
+installer — it upgrades in place.
 
 ---
 

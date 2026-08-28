@@ -2,6 +2,11 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.4.0 — 2026-08-28
+- **Check for Updates** button (Overview page). Reads the release feed, tells you
+  if a newer version exists, and — on confirmation — downloads the installer,
+  verifies its checksum, and launches it.
+
 ## 0.3.0 — 2026-08-28
 - **Flash the front-panel display from the host.** Plug in a blank RP2040 board
   and the host detects it and offers to flash the OLED display firmware — no

@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.3.0",
+    "version":  "0.4.0",
     "released":  "2026-08-28",
     "channel":  "stable",
-    "notes":  "Adds host-driven flashing of a blank RP2040 display board, plus firmware I2C auto-detect (0x3C/0x3D).",
+    "notes":  "Adds a Check for Updates button (reads this feed, verifies the download, one-click install).",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.3.0.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.3.0.exe",
-                      "size":  5075414,
-                      "sha256":  "d222300dd0983f8bf6f5d5079ba93cefeba192ee5a4605f64f0216ed8add2dfe"
+                      "filename":  "RacksoundHost-Setup-0.4.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.4.0.exe",
+                      "size":  5085155,
+                      "sha256":  "704e395bf8eb127ab97afd5ed405d4b33e67f51426ed0c93c518f3ccc6375ce4"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null
