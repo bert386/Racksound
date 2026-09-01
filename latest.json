@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.4.0",
-    "released":  "2026-08-28",
+    "version":  "0.5.0",
+    "released":  "2026-09-01",
     "channel":  "stable",
-    "notes":  "Adds a Check for Updates button (reads this feed, verifies the download, one-click install).",
+    "notes":  "System Optimiser now sets auto-login so the rack boots to the desktop and launches the host with no sign-in.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.4.0.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.4.0.exe",
-                      "size":  5085155,
-                      "sha256":  "704e395bf8eb127ab97afd5ed405d4b33e67f51426ed0c93c518f3ccc6375ce4"
+                      "filename":  "RacksoundHost-Setup-0.5.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.5.0.exe",
+                      "size":  5086102,
+                      "sha256":  "ec2d67a3f730ba8d8e5b7e87df2e7defdff8abc76f8a466999b11c9b329671b9"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null

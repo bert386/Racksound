@@ -2,6 +2,11 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.5.0 — 2026-08-28
+- **Auto-login** is now part of System Optimisation. On a dedicated rack,
+  Optimise sets the box to sign in automatically and launch the host — no manual
+  login. (Engages for a passwordless operator account; reversible via Restore.)
+
 ## 0.4.0 — 2026-08-28
 - **Check for Updates** button (Overview page). Reads the release feed, tells you
   if a newer version exists, and — on confirmation — downloads the installer,
