@@ -14,18 +14,18 @@ control panel to any phone/tablet on the same network.
 ## Download & install
 
 1. Download the installer from
-   **[`bin/RacksoundHost-Setup-0.5.0.exe`](bin/RacksoundHost-Setup-0.5.0.exe)**
+   **[`bin/RacksoundHost-Setup-0.6.0.exe`](bin/RacksoundHost-Setup-0.6.0.exe)**
    (or grab it from **[Releases](../../releases/latest)** if published there).
 2. Run it. Default install path is `C:\Program Files\Racksound Host`.
-   Silent install: `RacksoundHost-Setup-0.5.0.exe /VERYSILENT /NORESTART`.
+   Silent install: `RacksoundHost-Setup-0.6.0.exe /VERYSILENT /NORESTART`.
 3. Launch **Racksound Host**. It lives in the system tray; the control app opens
    from the tray icon.
 
 Verify the download (optional):
 
 ```
-CertUtil -hashfile RacksoundHost-Setup-0.5.0.exe SHA256
-# expect: ec2d67a3f730ba8d8e5b7e87df2e7defdff8abc76f8a466999b11c9b329671b9
+CertUtil -hashfile RacksoundHost-Setup-0.6.0.exe SHA256
+# expect: a6e3d7ca85fa86fb605820b13449e4847f93651325b8a83999dbf3d77075c564
 ```
 
 ### Add your feedback-suppression VST3 (done once, on the box)

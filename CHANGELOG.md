@@ -2,6 +2,13 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.6.0 — 2026-08-28
+- **Front-panel display: proper "PC OFF" state.** When the computer is shut down
+  (with the display still on standby power), the panel now shows a calm
+  **"PC OFF / standby"** instead of a red "not responding" error. Requires
+  re-flashing the display board (or flashing a fresh one) with the bundled
+  firmware.
+
 ## 0.5.0 — 2026-08-28
 - **Auto-login** is now part of System Optimisation. On a dedicated rack,
   Optimise sets the box to sign in automatically and launch the host — no manual

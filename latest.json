@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.5.0",
+    "version":  "0.6.0",
     "released":  "2026-09-01",
     "channel":  "stable",
-    "notes":  "System Optimiser now sets auto-login so the rack boots to the desktop and launches the host with no sign-in.",
+    "notes":  "Front-panel display now shows a calm \u0027PC OFF / standby\u0027 when the computer is shut down, instead of a red error.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.5.0.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.5.0.exe",
-                      "size":  5086102,
-                      "sha256":  "ec2d67a3f730ba8d8e5b7e87df2e7defdff8abc76f8a466999b11c9b329671b9"
+                      "filename":  "RacksoundHost-Setup-0.6.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.6.0.exe",
+                      "size":  5086220,
+                      "sha256":  "a6e3d7ca85fa86fb605820b13449e4847f93651325b8a83999dbf3d77075c564"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null
