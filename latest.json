@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.6.0",
+    "version":  "0.7.0",
     "released":  "2026-09-01",
     "channel":  "stable",
-    "notes":  "Front-panel display now shows a calm \u0027PC OFF / standby\u0027 when the computer is shut down, instead of a red error.",
+    "notes":  "Update Display Firmware button: reflashes the OLED board over USB (no BOOT button) and only when it\u0027s behind.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.6.0.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.6.0.exe",
-                      "size":  5086220,
-                      "sha256":  "a6e3d7ca85fa86fb605820b13449e4847f93651325b8a83999dbf3d77075c564"
+                      "filename":  "RacksoundHost-Setup-0.7.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.7.0.exe",
+                      "size":  5089828,
+                      "sha256":  "9cf6ffcf5295131e8c5ea3375204abb7e2d458e573ca80ac2989a7a493ffba1d"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null

@@ -2,6 +2,12 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.7.0 — 2026-09-01
+- **Update Display Firmware** button (Settings → Front-panel display). Shows the
+  connected board's firmware version and, when it's behind the bundled one,
+  reflashes it over USB — **no BOOT button** (uses the 1200-baud bootloader
+  touch). The display firmware now reports its version in the beacon.
+
 ## 0.6.0 — 2026-08-28
 - **Front-panel display: proper "PC OFF" state.** When the computer is shut down
   (with the display still on standby power), the panel now shows a calm
