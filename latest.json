@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.8.0",
+    "version":  "0.9.0",
     "released":  "2026-09-01",
     "channel":  "stable",
-    "notes":  "Optimise now also sets Racksound to launch on logon (was a separate toggle) so unattended boot works in one step.",
+    "notes":  "Optimise now clears the local operator account password so auto-login actually engages on a rack that required a password.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.8.0.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.8.0.exe",
-                      "size":  5089824,
-                      "sha256":  "c3ef638b1b04f19bb0e9baa618a6189147e538ad063bb122ea93a51ed6b91444"
+                      "filename":  "RacksoundHost-Setup-0.9.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.9.0.exe",
+                      "size":  5089466,
+                      "sha256":  "cce3c3cac86003e7147c4f7ae4613c285d5d4489faa94067086a48e16e2e11b2"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null

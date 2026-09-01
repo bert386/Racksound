@@ -2,6 +2,13 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.9.0 — 2026-09-01
+- **Optimise clears the operator account password** so auto-login engages even on
+  a rack where Windows setup forced a password. Applies to a **local** account.
+  Note: **Restore does not put the password back** — set a new one in Windows if
+  you want it. After Optimise + reboot, the rack signs in and launches Racksound
+  with no interaction.
+
 ## 0.8.0 — 2026-09-01
 - **Optimise now also sets Racksound to launch on logon** (previously a separate
   "Start with Windows" toggle). One Optimise pass sets the audio tuning,
