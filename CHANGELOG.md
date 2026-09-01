@@ -2,6 +2,12 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.8.0 — 2026-09-01
+- **Optimise now also sets Racksound to launch on logon** (previously a separate
+  "Start with Windows" toggle). One Optimise pass sets the audio tuning,
+  auto-login, and host-startup together, so a dedicated rack boots straight into
+  Racksound. (Auto-login still needs a passwordless account.)
+
 ## 0.7.0 — 2026-09-01
 - **Update Display Firmware** button (Settings → Front-panel display). Shows the
   connected board's firmware version and, when it's behind the bundled one,

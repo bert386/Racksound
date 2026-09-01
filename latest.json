@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.7.0",
+    "version":  "0.8.0",
     "released":  "2026-09-01",
     "channel":  "stable",
-    "notes":  "Update Display Firmware button: reflashes the OLED board over USB (no BOOT button) and only when it\u0027s behind.",
+    "notes":  "Optimise now also sets Racksound to launch on logon (was a separate toggle) so unattended boot works in one step.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.7.0.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.7.0.exe",
-                      "size":  5089828,
-                      "sha256":  "9cf6ffcf5295131e8c5ea3375204abb7e2d458e573ca80ac2989a7a493ffba1d"
+                      "filename":  "RacksoundHost-Setup-0.8.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.8.0.exe",
+                      "size":  5089824,
+                      "sha256":  "c3ef638b1b04f19bb0e9baa618a6189147e538ad063bb122ea93a51ed6b91444"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null
