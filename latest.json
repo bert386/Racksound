@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.9.0",
+    "version":  "0.10.0",
     "released":  "2026-09-01",
     "channel":  "stable",
-    "notes":  "Optimise now clears the local operator account password so auto-login actually engages on a rack that required a password.",
+    "notes":  "Display firmware v3: optional VBUS-sense wire lets it KNOW the PC is off (vs booting, vs Racksound stalled). Works with or without the wire.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.9.0.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.9.0.exe",
-                      "size":  5089466,
-                      "sha256":  "cce3c3cac86003e7147c4f7ae4613c285d5d4489faa94067086a48e16e2e11b2"
+                      "filename":  "RacksoundHost-Setup-0.10.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.0.exe",
+                      "size":  5089464,
+                      "sha256":  "0f14cb09a82cb2d80218542e9f40939ef4585ba225e2956b5fe1f585d2a3ffdb"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null

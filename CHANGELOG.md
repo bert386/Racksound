@@ -2,6 +2,13 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.10.0 — 2026-09-01
+- **Front-panel display knows when the PC is off.** New display firmware (v3)
+  adds optional **VBUS-sense**: with one wire it definitively distinguishes
+  **PC shut down** from **Windows booting** and from **Racksound stalled/stopped**,
+  instead of guessing. Works with or without the wire (falls back to the old
+  heuristic). Re-flash the board (Settings → Front-panel display → Update Firmware).
+
 ## 0.9.0 — 2026-09-01
 - **Optimise clears the operator account password** so auto-login engages even on
   a rack where Windows setup forced a password. Applies to a **local** account.
