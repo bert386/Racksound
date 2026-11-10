@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.10.2",
+    "version":  "0.10.3",
     "released":  "2026-11-10",
     "channel":  "stable",
-    "notes":  "Fix: Check for Updates now cache-busts the feed (0.10.0/0.10.1 could report a stale \u0027latest\u0027 version). Includes the RedNet PCIe device-switch fix.",
+    "notes":  "Fix: the per-channel pink-noise Test signal now works in the default (decoupled) processing mode, not just the legacy inline mode.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.10.2.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.2.exe",
-                      "size":  5089689,
-                      "sha256":  "806d63972f555265e571f794111e99c4de7423f7a85f0858b330153e0ce9bd03"
+                      "filename":  "RacksoundHost-Setup-0.10.3.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.3.exe",
+                      "size":  5090301,
+                      "sha256":  "dd91bc4e895c5f8028dbca56fe281fa048bd3ad73f21af6c1d97d6b26f848091"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null

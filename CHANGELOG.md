@@ -2,6 +2,12 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.10.3 — 2026-11-10
+- **Fix: the per-channel "Test signal (pink)" now works.** It was only
+  implemented in the legacy inline processing path, so on a normal (decoupled)
+  setup the button did nothing. Pink noise is now injected on the channel's
+  output in both modes, so it shows on the output meter and reaches the output.
+
 ## 0.10.2 — 2026-11-10
 - **Fix: "Check for Updates" could report a stale version.** It now cache-busts
   the feed, so it always sees the current release. (0.10.0/0.10.1 could wrongly
