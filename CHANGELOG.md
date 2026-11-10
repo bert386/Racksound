@@ -2,6 +2,13 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.10.1 — 2026-11-10
+- **Fix: switching audio devices could fail with "unspecified error in
+  initialisation."** The host was carrying the previous device's sample
+  rate/buffer onto the newly selected one. A card locked to its own clock
+  (e.g. a **Dante / Focusrite RedNet PCIe** card at 48 kHz) now opens at its
+  own native rate instead.
+
 ## 0.10.0 — 2026-09-01
 - **Front-panel display knows when the PC is off.** New display firmware (v3)
   adds optional **VBUS-sense**: with one wire it definitively distinguishes
