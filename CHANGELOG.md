@@ -2,6 +2,11 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.10.2 — 2026-11-10
+- **Fix: "Check for Updates" could report a stale version.** It now cache-busts
+  the feed, so it always sees the current release. (0.10.0/0.10.1 could wrongly
+  say you were on the latest.) Also includes the RedNet PCIe device-switch fix.
+
 ## 0.10.1 — 2026-11-10
 - **Fix: switching audio devices could fail with "unspecified error in
   initialisation."** The host was carrying the previous device's sample

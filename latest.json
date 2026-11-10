@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.10.1",
+    "version":  "0.10.2",
     "released":  "2026-11-10",
     "channel":  "stable",
-    "notes":  "Fix: selecting a new audio device (e.g. a Dante/RedNet PCIe card) now opens it at its own native rate, not the previous device\u0027s — fixes \u0027unspecified error in initialisation\u0027.",
+    "notes":  "Fix: Check for Updates now cache-busts the feed (0.10.0/0.10.1 could report a stale \u0027latest\u0027 version). Includes the RedNet PCIe device-switch fix.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.10.1.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.1.exe",
-                      "size":  5089815,
-                      "sha256":  "1b875d4dc49de6441e6dc8a89f24878e3636f5e078f8cec0e0a47de00e05e33f"
+                      "filename":  "RacksoundHost-Setup-0.10.2.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.2.exe",
+                      "size":  5089689,
+                      "sha256":  "806d63972f555265e571f794111e99c4de7423f7a85f0858b330153e0ce9bd03"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null
