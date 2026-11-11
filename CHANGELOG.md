@@ -2,6 +2,11 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.10.7 — 2026-11-11
+- **Adds an 8-sample processing block** (experimental). Lowest decoupled latency,
+  but into diminishing returns — watch the Dropouts meter; the plugin may buffer
+  internally so the real latency gain can be small.
+
 ## 0.10.6 — 2026-11-11
 - **Processing block now goes down to 16 and 32 samples** (System page), for
   lower latency in decoupled mode on a tuned, low-jitter rack. Smaller = less

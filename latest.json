@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.10.6",
+    "version":  "0.10.7",
     "released":  "2026-11-11",
     "channel":  "stable",
-    "notes":  "Adds 16 and 32-sample processing-block options for lower decoupled latency on a tuned rack (watch the Dropouts meter).",
+    "notes":  "Adds an 8-sample processing-block option (experimental, lowest decoupled latency; watch the Dropouts meter closely).",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.10.6.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.6.exe",
-                      "size":  5090218,
-                      "sha256":  "1b508019b2cf07c0bf7f6cdebbb19e22604e81375fe86155ef73966a4f633a96"
+                      "filename":  "RacksoundHost-Setup-0.10.7.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.7.exe",
+                      "size":  5090454,
+                      "sha256":  "13d16b98702bdc41119efee0880b374f9e632182287295897f7a10fac95fa391"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null
