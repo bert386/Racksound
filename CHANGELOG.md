@@ -2,6 +2,11 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.10.6 — 2026-11-11
+- **Processing block now goes down to 16 and 32 samples** (System page), for
+  lower latency in decoupled mode on a tuned, low-jitter rack. Smaller = less
+  latency but tighter on the DSP — step down while watching the Dropouts meter.
+
 ## 0.10.5 — 2026-11-11
 - **Latency reporting refined + the key lever explained.** The decoupled
   overhead is counted as two processing blocks (one to fill the input, one of

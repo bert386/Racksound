@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.10.5",
+    "version":  "0.10.6",
     "released":  "2026-11-11",
     "channel":  "stable",
-    "notes":  "Latency reporting: decoupled overhead counted as 2 blocks (fill + output priming). Turn Decoupled DFB off for zero processing overhead (inline, like a normal VST host).",
+    "notes":  "Adds 16 and 32-sample processing-block options for lower decoupled latency on a tuned rack (watch the Dropouts meter).",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.10.5.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.5.exe",
-                      "size":  5090097,
-                      "sha256":  "483ba108e026f0ee2271312e2f29a8580cabd0a1a9da0e6f06e58ed178f13b32"
+                      "filename":  "RacksoundHost-Setup-0.10.6.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.6.exe",
+                      "size":  5090218,
+                      "sha256":  "1b508019b2cf07c0bf7f6cdebbb19e22604e81375fe86155ef73966a4f633a96"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null
