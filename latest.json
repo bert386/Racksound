@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.10.3",
-    "released":  "2026-11-10",
+    "version":  "0.10.4",
+    "released":  "2026-11-11",
     "channel":  "stable",
-    "notes":  "Fix: the per-channel pink-noise Test signal now works in the default (decoupled) processing mode, not just the legacy inline mode.",
+    "notes":  "Latency now reported TRUE end-to-end (interface + processing block + plugin look-ahead), not just interface I/O; adds a 32-sample processing-block option.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.10.3.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.3.exe",
-                      "size":  5090301,
-                      "sha256":  "dd91bc4e895c5f8028dbca56fe281fa048bd3ad73f21af6c1d97d6b26f848091"
+                      "filename":  "RacksoundHost-Setup-0.10.4.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.4.exe",
+                      "size":  5089624,
+                      "sha256":  "bec5ff27df0ea8156375d33e2500429ddf3977789f02980d1251fe12a1b51b39"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null

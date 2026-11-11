@@ -2,6 +2,14 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.10.4 — 2026-11-11
+- **Latency is now reported honestly.** The figure was only the audio
+  interface's in/out latency. It now includes the **decoupled processing block**
+  and the **plugin's own look-ahead**, so the displayed round-trip matches what
+  you actually hear.
+- Added a **32-sample processing block** option (System → Processing block) for
+  lower latency on a tuned rack (watch the Dropouts meter).
+
 ## 0.10.3 — 2026-11-10
 - **Fix: the per-channel "Test signal (pink)" now works.** It was only
   implemented in the legacy inline processing path, so on a normal (decoupled)
