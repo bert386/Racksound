@@ -2,6 +2,13 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.10.5 — 2026-11-11
+- **Latency reporting refined + the key lever explained.** The decoupled
+  overhead is counted as two processing blocks (one to fill the input, one of
+  output priming). The overhead is from **our decoupled mode**, not the plugin —
+  turn **Decoupled DFB off** (System page) to run inline like a normal VST host,
+  where Defeedback adds no latency. Watch the Dropouts meter.
+
 ## 0.10.4 — 2026-11-11
 - **Latency is now reported honestly.** The figure was only the audio
   interface's in/out latency. It now includes the **decoupled processing block**

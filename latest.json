@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.10.4",
+    "version":  "0.10.5",
     "released":  "2026-11-11",
     "channel":  "stable",
-    "notes":  "Latency now reported TRUE end-to-end (interface + processing block + plugin look-ahead), not just interface I/O; adds a 32-sample processing-block option.",
+    "notes":  "Latency reporting: decoupled overhead counted as 2 blocks (fill + output priming). Turn Decoupled DFB off for zero processing overhead (inline, like a normal VST host).",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.10.4.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.4.exe",
-                      "size":  5089624,
-                      "sha256":  "bec5ff27df0ea8156375d33e2500429ddf3977789f02980d1251fe12a1b51b39"
+                      "filename":  "RacksoundHost-Setup-0.10.5.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.10.5.exe",
+                      "size":  5090097,
+                      "sha256":  "483ba108e026f0ee2271312e2f29a8580cabd0a1a9da0e6f06e58ed178f13b32"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null
