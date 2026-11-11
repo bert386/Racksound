@@ -2,6 +2,11 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.10.8 — 2026-11-11
+- **Adds a 4-sample processing block** (experimental, lowest possible). Deep into
+  diminishing returns — the interface/Dante latency dominates below ~16; watch
+  the Dropouts meter.
+
 ## 0.10.7 — 2026-11-11
 - **Adds an 8-sample processing block** (experimental). Lowest decoupled latency,
   but into diminishing returns — watch the Dropouts meter; the plugin may buffer
