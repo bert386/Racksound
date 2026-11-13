@@ -2,6 +2,17 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.11.0 — 2026-11-14
+- **Major latency fix: the plugin "window" is now tunable.** The host always
+  prepared the plugin at a 2048-sample block, which sized its internal
+  look-ahead and added ~20 ms — regardless of the processing block. A generic
+  VST host prepares at its buffer (e.g. 16 samples) for near-zero latency.
+  System page now has a **Plugin window** selector: dial it down toward the
+  processing block to match VSTHost-grade latency. Default stays 2048 (no
+  change for existing setups); smaller can fuzz on some plugins, so step down
+  and listen. Decoupled mode runs the DSP off the deadline, so small windows are
+  clean there.
+
 ## 0.10.8 — 2026-11-11
 - **Adds a 4-sample processing block** (experimental, lowest possible). Deep into
   diminishing returns — the interface/Dante latency dominates below ~16; watch
