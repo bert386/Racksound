@@ -2,6 +2,13 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.11.3 — 2026-11-15
+- **Fix: dropout counter could climb while idle.** The decoupled processing thread
+  and the plugin worker threads now flush denormals (previously only the audio
+  callback did), so the plugin no longer falls behind on very quiet input.
+- **Diagnostics Dropouts card** now shows the current rate per second and, in inline
+  mode, the worst callback time against its deadline.
+
 ## 0.11.2 — 2026-11-14
 - **Timing jitter is now a meaningful number.** It used to be a running count that
   only ever climbed and scaled with buffer size (10,000 at a 4-sample buffer, 1,000
