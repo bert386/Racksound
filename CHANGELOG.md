@@ -2,6 +2,14 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.11.1 — 2026-11-14
+- **Honest error counting.** Inline mode was counting every *late callback* as an
+  "error" — thousands of them, almost all inaudible because the interface buffer
+  absorbs them. Now the **Dropouts** count only reflects **real** audio gaps
+  (callbacks that blew the deadline / FIFO underruns), and late-callback **Timing
+  jitter** is shown separately as information. So a clean low-latency inline run
+  reads 0 dropouts instead of thousands of scary errors.
+
 ## 0.11.0 — 2026-11-14
 - **Major latency fix: the plugin "window" is now tunable.** The host always
   prepared the plugin at a 2048-sample block, which sized its internal
