@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.11.3",
+    "version":  "0.11.4",
     "released":  "2026-11-15",
     "channel":  "stable",
-    "notes":  "Racksound Host 0.11.3 - dropout counter fix (denormal flush on processing threads) + Dropouts card rate/worst-callback.",
+    "notes":  "Racksound Host 0.11.4 - inline Dropouts count only lateness the driver\u0027s safety buffer can\u0027t absorb.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.11.3.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.11.3.exe",
-                      "size":  5091325,
-                      "sha256":  "c8b4e8a51018b36a684d801d13c40ae48e2e397dd5a97a09c837b25b9fdfba0f"
+                      "filename":  "RacksoundHost-Setup-0.11.4.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.11.4.exe",
+                      "size":  5091888,
+                      "sha256":  "c9bc870aa467fa49bce895f1fc2d3c6621f653042c14cdfe6e9d095298dd5e02"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null

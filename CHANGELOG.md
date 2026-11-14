@@ -2,6 +2,12 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.11.4 — 2026-11-15
+- **Inline Dropouts now count only lateness the audio driver's own safety buffer
+  can't absorb** (e.g. RedNet "Safe mode"). Overruns inside that margin show as
+  "late, absorbed by driver". Interfaces that report no extra buffer count every
+  overrun as before.
+
 ## 0.11.3 — 2026-11-15
 - **Fix: dropout counter could climb while idle.** The decoupled processing thread
   and the plugin worker threads now flush denormals (previously only the audio
