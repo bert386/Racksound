@@ -2,6 +2,18 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.11.2 — 2026-11-14
+- **Timing jitter is now a meaningful number.** It used to be a running count that
+  only ever climbed and scaled with buffer size (10,000 at a 4-sample buffer, 1,000
+  at 16 — for the *same* health), so it told you nothing. It's now reported as a
+  **percentage of callbacks** that arrived bunched, plus the **peak lateness in µs**
+  — both independent of buffer size and runtime. Compare the peak against your
+  interface buffer depth: if peak < buffer, a dropout is physically impossible,
+  so you can *see* the margin instead of guessing.
+- **Processing-block control is greyed out in inline mode.** It only applies to
+  decoupled mode (inline runs the DSP at the device buffer), so it's now dimmed and
+  labelled when decoupled is off, instead of looking like a dead control.
+
 ## 0.11.1 — 2026-11-14
 - **Honest error counting.** Inline mode was counting every *late callback* as an
   "error" — thousands of them, almost all inaudible because the interface buffer

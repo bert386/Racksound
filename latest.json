@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.11.1",
+    "version":  "0.11.2",
     "released":  "2026-11-14",
     "channel":  "stable",
-    "notes":  "Error counting now separates REAL dropouts (deadline overruns / FIFO underruns) from harmless late-callback timing jitter — inline no longer shows thousands of inaudible \u0027errors\u0027.",
+    "notes":  "Racksound Host 0.11.2.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.11.1.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.11.1.exe",
-                      "size":  5090791,
-                      "sha256":  "323d4cba9f73223ac069bfa4ab318a93607cd2d274ba9ad92193fdea7f83cbd0"
+                      "filename":  "RacksoundHost-Setup-0.11.2.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.11.2.exe",
+                      "size":  5091100,
+                      "sha256":  "4d7706e460f432252252a525d4954e1d9a1f2cb931c29d2306a806e726d9d570"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null
