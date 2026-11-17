@@ -2,6 +2,19 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.12.0 — 2026-11-18
+- **Usage counters.** Diagnostics has a new **Usage** section: **audio live time**
+  (time any channel carried real signal, above −50 dBFS with a 2 s hold so pauses in
+  speech don't break it up), **engine running time**, **PC uptime**, live time per
+  channel, and how the **last shutdown** ended (clean, or unclean = crash / power loss).
+- **Event log.** The host now records what happens: start/stop/update, audio device
+  changes or loss, processing mode and plugin-window changes, processing / mute-all,
+  channel count, plugin load errors, and real dropouts (summarised per 10 s). Shown in
+  Diagnostics → Event Log and kept in `%APPDATA%\Racksound\events.log`.
+- **Rack identity.** Each rack gets a permanent ID; `/status` now reports the real host
+  version, the rack ID and the rack name.
+- Nothing is sent off the rack — this is all local. (Groundwork for the fleet dashboard.)
+
 ## 0.11.4 — 2026-11-15
 - **Inline Dropouts now count only lateness the audio driver's own safety buffer
   can't absorb** (e.g. RedNet "Safe mode"). Overruns inside that margin show as

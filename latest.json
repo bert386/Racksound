@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.11.4",
-    "released":  "2026-11-15",
+    "version":  "0.12.0",
+    "released":  "2026-11-18",
     "channel":  "stable",
-    "notes":  "Racksound Host 0.11.4 - inline Dropouts count only lateness the driver\u0027s safety buffer can\u0027t absorb.",
+    "notes":  "Racksound Host 0.12.0 - usage counters (audio live time, engine running, PC uptime), event log, crash detection, real version in /status.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.11.4.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.11.4.exe",
-                      "size":  5091888,
-                      "sha256":  "c9bc870aa467fa49bce895f1fc2d3c6621f653042c14cdfe6e9d095298dd5e02"
+                      "filename":  "RacksoundHost-Setup-0.12.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.12.0.exe",
+                      "size":  5100223,
+                      "sha256":  "509c90c8eac01d2da5b1ad5f80900a54644136a931af05237f8ee1b34ecc798b"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null
