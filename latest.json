@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.12.0",
+    "version":  "0.13.0",
     "released":  "2026-11-18",
     "channel":  "stable",
-    "notes":  "Racksound Host 0.12.0 - usage counters (audio live time, engine running, PC uptime), event log, crash detection, real version in /status.",
+    "notes":  "Racksound Host 0.13.0 - optional cloud reporting to the Eastec fleet dashboard (opt-in via claim code).",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.12.0.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.12.0.exe",
-                      "size":  5100223,
-                      "sha256":  "509c90c8eac01d2da5b1ad5f80900a54644136a931af05237f8ee1b34ecc798b"
+                      "filename":  "RacksoundHost-Setup-0.13.0.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.13.0.exe",
+                      "size":  5111594,
+                      "sha256":  "23a08044037bc861f652974491486f42f926a614db344b04967e44ddffddfb9e"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null

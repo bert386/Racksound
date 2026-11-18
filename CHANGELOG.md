@@ -2,6 +2,20 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.13.0 — 2026-11-18
+- **Cloud reporting to the Eastec fleet dashboard (optional).** A rack can now send its
+  health to fleetsound.eastec.com.au once a minute: uptime, audio live time, dropouts,
+  timing, CPU, latency and its event log. **Never audio.** It is off until you enrol the
+  rack: System → Cloud Reporting → enter the claim code from the dashboard → Enrol. You can
+  switch it off or unenrol at any time.
+- **Built so it can't disturb the audio.** All uploading runs on one background thread at the
+  lowest Windows priority, with short timeouts; the audio path only gains two counters.
+  Measured on a test rig: no extra dropouts and no change in callback timing with reporting
+  on, or with the server unreachable.
+- **Works offline.** If the network is down the rack keeps up to 14 days of reports on disk and
+  sends them when it reconnects. Nothing is deleted until the server confirms it.
+- The rack's dashboard key is stored encrypted on the rack and is never shown or logged.
+
 ## 0.12.0 — 2026-11-18
 - **Usage counters.** Diagnostics has a new **Usage** section: **audio live time**
   (time any channel carried real signal, above −50 dBFS with a 2 s hold so pauses in
