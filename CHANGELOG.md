@@ -2,6 +2,17 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.13.1 — 2026-11-19
+- **Decoupled mode no longer creeps up in latency.** Before, every dropout in decoupled mode
+  permanently added a little delay (the audio that arrived during the gap was played late and
+  stayed queued), so a rack could end up several ms slower than designed until it restarted.
+  Now any excess is trimmed back automatically with a short, click-free crossfade.
+- **Fewer start-up dropouts.** Decoupled mode now starts with a small, fixed cushion (processing
+  block + one interface buffer + 1.5 ms) so the plugin's heavy analysis passes don't run it dry in
+  the first minutes. On the test rig: start-up dropouts 2 → 0.
+- **See the real delay.** Diagnostics → **Decoupled delay** shows the delay actually queued right
+  now against its target, and the latency figures now use that real number.
+
 ## 0.13.0 — 2026-11-18
 - **Cloud reporting to the Eastec fleet dashboard (optional).** A rack can now send its
   health to fleetsound.eastec.com.au once a minute: uptime, audio live time, dropouts,

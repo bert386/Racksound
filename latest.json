@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.13.0",
-    "released":  "2026-11-18",
+    "version":  "0.13.1",
+    "released":  "2026-11-19",
     "channel":  "stable",
-    "notes":  "Racksound Host 0.13.0 - optional cloud reporting to the Eastec fleet dashboard (opt-in via claim code).",
+    "notes":  "Racksound Host 0.13.1 - decoupled mode no longer gains extra latency after dropouts; live decoupled delay readout.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.13.0.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.13.0.exe",
-                      "size":  5111594,
-                      "sha256":  "23a08044037bc861f652974491486f42f926a614db344b04967e44ddffddfb9e"
+                      "filename":  "RacksoundHost-Setup-0.13.1.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.13.1.exe",
+                      "size":  5112829,
+                      "sha256":  "28478af4f787224ca8e9d5dc9e34e243a6251b4a75acaab2f3e4ed7531fa4029"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null
