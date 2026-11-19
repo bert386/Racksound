@@ -1,15 +1,15 @@
 ﻿{
     "schema":  1,
     "product":  "racksound-host",
-    "version":  "0.13.1",
+    "version":  "0.13.2",
     "released":  "2026-11-19",
     "channel":  "stable",
-    "notes":  "Racksound Host 0.13.1 - decoupled mode no longer gains extra latency after dropouts; live decoupled delay readout.",
+    "notes":  "Racksound Host 0.13.2 - loopback latency meter (true round-trip) and effective plugin window display.",
     "installer":  {
-                      "filename":  "RacksoundHost-Setup-0.13.1.exe",
-                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.13.1.exe",
-                      "size":  5112829,
-                      "sha256":  "28478af4f787224ca8e9d5dc9e34e243a6251b4a75acaab2f3e4ed7531fa4029"
+                      "filename":  "RacksoundHost-Setup-0.13.2.exe",
+                      "url":  "https://github.com/bert386/Racksound/raw/main/bin/RacksoundHost-Setup-0.13.2.exe",
+                      "size":  5120376,
+                      "sha256":  "44cc12bd90740f84d3d08ab17dbbed83dea798e4d30cb220db74c50fcbeed1de"
                   },
     "silentArgs":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
     "minSupportedPrevious":  null

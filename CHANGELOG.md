@@ -2,6 +2,19 @@
 
 All notable changes to Racksound Host, newest first.
 
+## 0.13.2 — 2026-11-19
+- **Measure the TRUE latency.** Diagnostics → **Measure Latency**: loop a channel's output back
+  into a spare input (cable, or a Dante/RedNet route), pick both, press Measure. The host plays a
+  few short clicks — once straight to the output (interface alone) and once through the whole
+  channel chain (trim → plugin, inline or decoupled) — and times them on the return input. You get
+  the real round-trip, the interface part, and the processing + plugin part, including any
+  look-ahead the plugin keeps to itself and the calculated figure can't see.
+  **It plays clicks out of that output — never run it into a live PA.**
+- **Effective plugin window.** The Plugin window setting now shows what is actually used: the host
+  prepares the plugin for at least the block it feeds it (the processing block in decoupled mode,
+  the interface buffer inline), so e.g. "Window 16 → using 64".
+- The last measured latency is also reported in `/status` and to the fleet dashboard.
+
 ## 0.13.1 — 2026-11-19
 - **Decoupled mode no longer creeps up in latency.** Before, every dropout in decoupled mode
   permanently added a little delay (the audio that arrived during the gap was played late and
